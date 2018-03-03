@@ -8,64 +8,46 @@ int main()
     int size;
     
     cin >> size;
-        
-    if ((size < 2 || size == 4) || size > 5)
+    
+    if (size < 2 || size > 6)
     {
         do {
             cout << "Error" << endl;
             cin >> size;
-        } while ((size < 2 || size == 4) || size > 5);
+        } while (size < 2 || size > 6);
     }
     
-    switch (size) {
-        case 2:
-            for (int d = 0; d < 1; d++) {
-                cout << "######" << endl;
-                for (int h = 2; h > 0; h--) {
-                    cout << "#" << setw(size + 3) << "#" << endl;
-                }
-                for (int m = 0; (size + 2) > m; m++) {
-                    cout << "######" << endl;
-                }
-                cout << setw(size + 3) << "####" << endl;
-                for (int t = 0; size > t; t++) {
-                    cout << setw(size + 2) << "##" << endl;
-                }
+    for(int space = 0; space < 1; space++)
+    {
+        cout << setw(3);
+        for(int repeat = 2; repeat > 0; repeat--)
+        {
+            cout << setw(3);
+            for(int top = 0; size > top; top++)
+            {
+                cout << "#";
             }
-            break;
-        case 3:
-            for (int d = 0; d < 1; d++) {
-                cout << "#######" << endl;
-                for (int h = 2; h > 0; h--) {
-                    cout << "#" << setw(size + 3) << "#" << endl;
-                }
-                for (int m = 0; (size + 2) > m; m++) {
-                    cout << "#######" << endl;
-                }
-                cout << setw(size + 3) << "#####" << endl;
-                for (int t = 0; size > t; t++) {
-                    cout << setw(size + 2) << "###" << endl;
-                }
+            cout << endl;
+        }
+        
+        for (int gap = 0; (size - 2) > gap; gap++)
+        {
+            cout << setw(3) << "#" << setw(size - 1) << "#" << endl;
+        }
+        
+        cout << setw(2) << "#" << setw(size + 1) << "#" << endl;
+        cout << "#" << setw(size + 3) << "#" << endl;
+        
+        for (int gap = 0; (size + 4) > gap; gap++)
+        {
+            for (int down = 0; (size + 4) > down; down++)
+            {
+                cout << "#";
             }
-            break;
-        case 5:
-            for (int d = 0; d < 1; d++) {
-                cout << "#########" << endl;
-                for (int h = 2; h > 0; h--) {
-                    cout << "#" << setw(size + 3) << "#" << endl;
-                }
-                for (int m = 0; (size + 2) > m; m++) {
-                    cout << "#########" << endl;
-                }
-                cout << setw(size + 3) << "#######" << endl;
-                for (int t = 0; size > t; t++) {
-                    cout << setw(size + 2) << "#####" << endl;
-                }
-            }
-            break;
+            cout << endl;
+        }
     }
     
     return 0;
 }
-
 
